@@ -1,13 +1,12 @@
-const url = "api-go-doc:8080/albums"
+const url = "http://localhost/albums"
 const register = document.getElementById("register")
 
 register.addEventListener("submit", async function (event) {
     event.preventDefault()
 
     const data = {
-        "ID": document.getElementById("inputID").value,
-        "Title": document.getElementById("inputTitulo").value,
-        "Artist": document.getElementById("inputArtista").value,
+        "title": document.getElementById("inputTitulo").value,
+        "artist": document.getElementById("inputArtista").value,
         "price": parseFloat(document.getElementById("inputPreco").value)
     }
 

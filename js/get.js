@@ -1,4 +1,4 @@
-const url = "http://api-go-doc:8080/albums"
+const url = "http://localhost/albums"
 
 async function axiosGet() {
     axios.get(url, {
@@ -7,38 +7,39 @@ async function axiosGet() {
         }
     })
         .then(response => {
-            getProduts(response.data)
+            getObjs(response.data)
         })
         .catch(error => {
             console.log(error)
         })
 }
 
-function getProduts(objs) {
+function getObjs(objs) {
     const tbody = document.getElementById('tbody_objs')
     for (o of objs) {
 
         const tr = document.createElement('tr')
         tr.className = "align-middle"
-        tr.id = o.ID
+        tr.id = o._id
 
         let td = document.createElement('td')
-        td.innerHTML = o.ID + "-"
+        tr.id = o._id + "-"
+        td.innerHTML = o._id
         tr.appendChild(td)
 
         td = document.createElement('td')
-        td.id = o.ID + "0"
-        td.innerHTML = o.Title
+        td.id = o._id + "0"
+        td.innerHTML = o.title
         tr.appendChild(td)
 
         td = document.createElement('td')
-        td.id = o.ID + "1"
-        td.innerHTML = o.Artist
+        td.id = o._id + "1"
+        td.innerHTML = o.artist
         tr.appendChild(td)
 
         td = document.createElement('td')
-        td.id = o.ID + "2"
-        td.innerHTML = o.Price
+        td.id = o._id + "2"
+        td.innerHTML = o.price
         tr.appendChild(td)
 
         tbody.appendChild(tr)
